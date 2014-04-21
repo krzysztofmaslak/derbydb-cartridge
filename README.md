@@ -1,4 +1,0 @@
-derbydb-cartridge
-=================
-
-derbydb-cartridge

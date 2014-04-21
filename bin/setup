@@ -1,0 +1,16 @@
+#!/bin/bash -e
+
+case "$1" in
+  -v|--version)
+    version="$2"
+esac
+
+rm -rf ${OPENSHIFT_HOMEDIR}/derby
+mkdir -p ${OPENSHIFT_HOMEDIR}/derby
+cd ${OPENSHIFT_HOMEDIR}/derby
+wget http://www.whoishostingthis.com/mirrors/apache//db/derby/db-derby-${version}/db-derby-${version}-bin.zip
+unzip -d ${OPENSHIFT_HOMEDIR}/derby ${OPENSHIFT_HOMEDIR}/derby/db-derby-${version}-bin.zip
+mv ${OPENSHIFT_HOMEDIR}/derby/db-derby-${version}-bin/* ${OPENSHIFT_HOMEDIR}/derby
+rm -rf ${OPENSHIFT_HOMEDIR}/derby/db-derby-${version}-bin
+rm -rf ${OPENSHIFT_HOMEDIR}/derby/db-derby-${version}-bin.zip
+exit 0
